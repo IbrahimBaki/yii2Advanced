@@ -10,6 +10,10 @@ return [
     'id' => 'app-frontend',
     'basePath' => dirname(__DIR__),
     'bootstrap' => ['log'],
+//    'aliases'=>[
+//        '@backImg' => '@backend/web/uploads/',
+////        Yii::setAlias('@foo', '/path/to/foo')
+//    ],
     'controllerNamespace' => 'frontend\controllers',
     'components' => [
         'request' => [
@@ -46,7 +50,7 @@ return [
 
         'urlManagerBackend' => [
             'class' => 'yii\web\urlManager',
-            'baseUrl' => 'backend/web/uploads/',
+            'baseUrl' => '@backend/web/uploads',
             'enablePrettyUrl' => true,
             'showScriptName' => false,
 

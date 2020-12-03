@@ -67,7 +67,7 @@ $this->title = 'Home';
                 <?php foreach ($categories as $category): ?>
                     <dir class="col-xl-3 col-lg-3 col-md-6 col-sm-12">
                         <div class="for_box" style="width: 200px;height: 311px">
-                            <i><?= Html::img('@web/uploads/'.$category->image,['style'=>'width:164px;height:164px;border-radius: 45%']) ?></i>
+                            <i><?= Html::img(Yii::$app->urlManagerBackend->baseUrl.'/' .$category->image,['style'=>'width:164px;height:164px;border-radius: 45%']) ?></i>
                             <h3><?= $category-> title?></h3>
                             <p><?= $category-> description?></p>
                         </div>
@@ -162,7 +162,7 @@ $this->title = 'Home';
                 <?php foreach ($products as $product): ?>
                     <div class="col-xl-3 col-lg-3 col-md-6 col-sm-12">
                         <div class="product-box" style="width: 240px;height: 301px">
-                            <i><?= Html::img('@web/uploads/'.$product->image,['style'=>'width:160px;height:160px'])?></i>
+                            <i><?= Html::img(Yii::getAlias('@backImg').$product->image,['style'=>'width:160px;height:160px'])?></i>
                             <h3><?= $product->title ?></h3>
                             <?php
                             // $price =  $product->productColors->findOne()

@@ -5,7 +5,9 @@ namespace backend\controllers;
 use Yii;
 use backend\models\Category;
 use backend\models\CategorySearch;
+use yii\filters\AccessControl;
 use yii\web\Controller;
+use yii\web\ForbiddenHttpException;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
 use yii\web\UploadedFile;
@@ -21,6 +23,21 @@ class CategoryController extends Controller
     public function behaviors()
     {
         return [
+            'access' => [
+                'class' => AccessControl::className(),
+                'rules' => [
+                    [
+                        'actions' => ['create', 'update','view','delete','index'],
+                        'allow' => true,
+                        'roles' => ['admin'],
+                    ],
+                    [
+                        'actions' => ['logout'],
+                        'allow' => true,
+                        'roles' => ['@'],
+                    ],
+                ],
+            ],
             'verbs' => [
                 'class' => VerbFilter::className(),
                 'actions' => [
@@ -65,18 +82,22 @@ class CategoryController extends Controller
      */
     public function actionCreate()
     {
-        $model = new Category();
 
-        if ($model->load(Yii::$app->request->post())) {
-            $model->image = UploadedFile::getInstance($model,'image');
-            if($model->save()){
-                $model->upload();
-                return $this->redirect(['view', 'id' => $model->id]);
+            $model = new Category();
+
+            if ($model->load(Yii::$app->request->post())) {
+                $model->image = UploadedFile::getInstance($model,'image');
+                if($model->save()){
+                    $model->upload();
+                    return $this->redirect(['view', 'id' => $model->id]);
+                }
             }
-        }
-        return $this->render('create', [
-            'model' => $model,
-        ]);
+            return $this->render('create', [
+                'model' => $model,
+            ]);
+
+
+
     }
 
     /**
@@ -88,19 +109,21 @@ class CategoryController extends Controller
      */
     public function actionUpdate($id)
     {
-        $model = $this->findModel($id);
-        $model->scenario = 'update';
-        if ($model->load(Yii::$app->request->post())) {
-            $model->image = UploadedFile::getInstance($model,'image');
-            if($model->save()) {
-                $model->upload();
-                return $this -> redirect(['view', 'id' => $model -> id]);
-            }
-        }
 
-        return $this->render('update', [
-            'model' => $model,
-        ]);
+            $model = $this -> findModel($id);
+            $model -> scenario = 'update';
+            if ($model -> load(Yii ::$app -> request -> post())) {
+                $model -> image = UploadedFile ::getInstance($model, 'image');
+                if ($model -> save()) {
+                    $model -> upload();
+                    return $this -> redirect(['view', 'id' => $model -> id]);
+                }
+            }
+
+            return $this -> render('update', [
+                'model' => $model,
+            ]);
+
     }
 
     /**

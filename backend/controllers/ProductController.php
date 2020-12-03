@@ -7,6 +7,7 @@ use backend\models\ProductOptions;
 use Yii;
 use backend\models\Product;
 use backend\models\ProductSearch;
+use yii\filters\AccessControl;
 use yii\helpers\ArrayHelper;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
@@ -24,6 +25,21 @@ class ProductController extends Controller
     public function behaviors()
     {
         return [
+            'access' => [
+                'class' => AccessControl::className(),
+                'rules' => [
+                    [
+                        'actions' => ['create', 'update','view','delete','index'],
+                        'allow' => true,
+                        'roles' => ['admin'],
+                    ],
+                    [
+                        'actions' => ['logout'],
+                        'allow' => true,
+                        'roles' => ['@'],
+                    ],
+                ],
+            ],
             'verbs' => [
                 'class' => VerbFilter::className(),
                 'actions' => [
@@ -39,13 +55,13 @@ class ProductController extends Controller
      */
     public function actionIndex()
     {
-        $searchModel = new ProductSearch();
-        $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
+            $searchModel = new ProductSearch();
+            $dataProvider = $searchModel -> search(Yii ::$app -> request -> queryParams);
 
-        return $this->render('index', [
-            'searchModel' => $searchModel,
-            'dataProvider' => $dataProvider,
-        ]);
+            return $this -> render('index', [
+                'searchModel' => $searchModel,
+                'dataProvider' => $dataProvider,
+            ]);
     }
 
     /**
@@ -104,6 +120,7 @@ class ProductController extends Controller
      */
     public function actionUpdate($id)
     {
+
         $category = Category::find()->all();
         $catList = ArrayHelper::map($category,'id','title');
         $model = $this->findModel($id);
@@ -139,9 +156,11 @@ class ProductController extends Controller
      */
     public function actionDelete($id)
     {
+
         $this->findModel($id)->delete();
 
         return $this->redirect(['index']);
+
     }
 
     /**

@@ -54,8 +54,11 @@ class SignupForm extends Model
         $user->password_hash = password_hash($this->password,PASSWORD_ARGON2I);
         $user->generateAuthKey();
         $user->generateEmailVerificationToken();
-        return $user->save() && $this->sendEmail($user);
-
+         $user->save() && $this->sendEmail($user);
+         $auth = Yii::$app->authManager;
+         $authRole = $auth->getRole('admin');
+         $auth->assign($authRole,$user->getId());
+        return null;
     }
 
     /**

@@ -11,6 +11,10 @@ return [
     'basePath' => dirname(__DIR__),
     'controllerNamespace' => 'backend\controllers',
     'bootstrap' => ['log'],
+    'aliases'=>[
+        '@backImg' => '@backend/web/uploads/',
+//        Yii::setAlias('@foo', '/path/to/foo')
+    ],
     'components' => [
         'request' => [
             'csrfParam' => '_csrf-backend',
@@ -32,6 +36,10 @@ return [
                     'levels' => ['error', 'warning'],
                 ],
             ],
+        ],
+        'authManager'=>[
+            'class'=>'yii\rbac\DbManager',
+            'defaultRoles'=>['user'],
         ],
         'errorHandler' => [
             'errorAction' => 'site/error',

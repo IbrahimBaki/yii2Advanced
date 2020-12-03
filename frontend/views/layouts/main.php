@@ -82,10 +82,10 @@ AppAsset::register($this);
                                     <li> <?= Html::a('Contact', ['contact']) ?> </li>
                                     <?php if(Yii::$app->user->isGuest): ?>
                                         <li> <?= Html::a('Login', ['login']) ?> </li>
-                                        <li class="mean-last"> <?= Html::a('register', ['register']) ?> </li>
+                                        <li class="mean-last"> <?= Html::a('signup', ['signup']) ?> </li>
                                     <?php else: ?>
 
-                                        <li class="mt-3"> <?= Html::beginForm(['/shop/logout'], 'post')
+                                        <li class="mt-3"> <?= Html::beginForm(['/site/logout'], 'post')
                                             . Html::submitButton('Logout (' . Yii::$app->user->identity->username . ')',['class'=>'buy']) . Html::endForm() ?> </li>
 
 
