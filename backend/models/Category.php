@@ -60,7 +60,7 @@ class Category extends \yii\db\ActiveRecord
     public function upload()
     {
         if($this->validate()){
-            $this->image->saveAs('@backend/web/uploads/'. $this->image->basename . '.' . $this->image->extension);
+            $this->image->saveAs('@staticPath/images/'. $this->image->basename . '.' . $this->image->extension);
             return true;
         }else{
             return false;

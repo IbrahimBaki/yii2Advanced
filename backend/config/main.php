@@ -10,7 +10,7 @@ return [
     'id' => 'app-backend',
     'basePath' => dirname(__DIR__),
     'controllerNamespace' => 'backend\controllers',
-    'bootstrap' => ['log'],
+    'bootstrap' =>  ['log'],
     'aliases'=>[
         '@backImg' => '@backend/web/uploads/',
 //        Yii::setAlias('@foo', '/path/to/foo')
@@ -18,6 +18,7 @@ return [
     'components' => [
         'request' => [
             'csrfParam' => '_csrf-backend',
+
         ],
         'user' => [
             'identityClass' => 'common\models\User',
@@ -47,7 +48,7 @@ return [
 
         'urlManager' => [
             'enablePrettyUrl' => true,
-            'showScriptName' => false,
+            'showScriptName' => true,
             'rules' => [
             ],
         ],
@@ -55,7 +56,7 @@ return [
             'class' => 'yii\web\urlManager',
             'baseUrl' => 'frontend/web/uploads/',
             'enablePrettyUrl' => true,
-            'showScriptName' => false,
+            'showScriptName' => true,
         ],
 
     ],

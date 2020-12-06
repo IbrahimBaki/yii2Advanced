@@ -29,7 +29,7 @@ $this->params['breadcrumbs'][] = $this->title;
             <dir class="col-xl-6 col-lg-6 col-md-12 col-sm-12">
                 <div class="about_box">
                     <figure>
-                    <?= Html::img('@web/uploads/'.$model->image) ?>
+                    <?= Html::img(Yii::getAlias('@staticPath/images/').$model->image) ?>
                     </figure>
                 </div>
             </dir>

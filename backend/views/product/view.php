@@ -48,7 +48,7 @@ $this->params['breadcrumbs'][] = $this->title;
                 'attribute' => 'image',
                 'format'=>'html',
                 'label'=>'Image',
-                'value'=>Html::img('@web/uploads/'.$model->image,['width'=>'60px']),
+                'value'=>Html::img(Yii::getAlias('@staticPath/images/').$model->image,['width'=>'60px']),
             ],
             [
                 'attribute'=>'created_at',

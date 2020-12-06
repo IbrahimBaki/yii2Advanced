@@ -3,7 +3,7 @@
 /* @var $this yii\web\View */
 /* @var $products backend\models\Product */
 /* @var $categories backend\models\Category */
-/* @var $sliders frontend\models\Slider */
+/* @var $sliders backend\models\Slider */
 
 use yii\helpers\Html;
 
@@ -17,7 +17,7 @@ $this->title = 'Home';
             $i = 0;
             foreach ($sliders as $slider):?>
                 <div class="carousel-item <?= $i==0 ? 'active' : ''?>">
-                    <?= Html::img('@web/uploads/'. $slider->image,['style'=>'height:657px;width:1920px']) ?>
+                    <?= Html::img(Yii::getAlias('@staticPath/images/'). $slider->image,['style'=>'height:657px;width:1920px']) ?>
                     <div class="container">
                         <div class="carousel-caption relative">
                             <h1>Latest <br> <strong class="black_bold"> <?= $slider->type ?> </strong><br>
@@ -67,7 +67,7 @@ $this->title = 'Home';
                 <?php foreach ($categories as $category): ?>
                     <dir class="col-xl-3 col-lg-3 col-md-6 col-sm-12">
                         <div class="for_box" style="width: 200px;height: 311px">
-                            <i><?= Html::img(Yii::$app->urlManagerBackend->baseUrl.'/' .$category->image,['style'=>'width:164px;height:164px;border-radius: 45%']) ?></i>
+                            <i><?= Html::img(Yii::getAlias('@staticPath/images/').$category->image,['style'=>'width:164px;height:164px;border-radius: 45%']) ?></i>
                             <h3><?= $category-> title?></h3>
                             <p><?= $category-> description?></p>
                         </div>
@@ -162,7 +162,7 @@ $this->title = 'Home';
                 <?php foreach ($products as $product): ?>
                     <div class="col-xl-3 col-lg-3 col-md-6 col-sm-12">
                         <div class="product-box" style="width: 240px;height: 301px">
-                            <i><?= Html::img(Yii::getAlias('@backImg').$product->image,['style'=>'width:160px;height:160px'])?></i>
+                            <i><?= Html::img(Yii::getAlias('@staticPath/images/').$product->image,['style'=>'width:160px;height:160px'])?></i>
                             <h3><?= $product->title ?></h3>
                             <?php
                             // $price =  $product->productColors->findOne()

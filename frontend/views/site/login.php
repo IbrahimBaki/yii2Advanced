@@ -15,7 +15,7 @@ $this->params['breadcrumbs'][] = $this->title;
         <div class="row">
             <div class="col-md-12">
                 <div class="titlepage">
-                    <h2>Login</h2>
+                    <h2><?= $this->title ?></h2>
                 </div>
             </div>
         </div>

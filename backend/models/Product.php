@@ -68,7 +68,7 @@ class Product extends \yii\db\ActiveRecord
     public function upload()
     {
         if($this->validate()){
-            $this->image->saveAs('@backend/web/uploads/'. $this->image->baseName . '.' . $this->image->extension);
+            $this->image->saveAs('@staticPath/images/'. $this->image->baseName . '.' . $this->image->extension);
             return true;
         }else{
             return false;

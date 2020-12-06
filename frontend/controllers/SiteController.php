@@ -4,7 +4,7 @@ namespace frontend\controllers;
 use backend\models\Category;
 use backend\models\Product;
 use frontend\models\ResendVerificationEmailForm;
-use frontend\models\Slider;
+use backend\models\Slider;
 use frontend\models\VerifyEmailForm;
 use Yii;
 use yii\base\InvalidArgumentException;

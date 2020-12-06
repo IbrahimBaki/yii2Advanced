@@ -4,7 +4,7 @@ use yii\helpers\Html;
 use yii\widgets\DetailView;
 
 /* @var $this yii\web\View */
-/* @var $model frontend\models\Slider */
+/* @var $model backend\models\Slider */
 
 $this->title = $model->title;
 $this->params['breadcrumbs'][] = ['label' => 'Sliders', 'url' => ['index']];

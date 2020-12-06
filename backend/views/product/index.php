@@ -43,7 +43,7 @@ $this->params['breadcrumbs'][] = $this->title;
                 'format'=>'html',
                 'label'=>'Image',
                 'value'=>function($data){
-                    return Html::img('@web/uploads/'. $data->image ,['width'=>'60px','height'=>'60px']);
+                    return Html::img(Yii::getAlias('@staticPath/images/'). $data->image ,['width'=>'60px','height'=>'60px']);
                 }
             ],
             ['class' => 'yii\grid\ActionColumn'],

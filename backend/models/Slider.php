@@ -1,6 +1,6 @@
 <?php
 
-namespace frontend\models;
+namespace backend\models;
 
 use Yii;
 
@@ -52,7 +52,7 @@ class Slider extends \yii\db\ActiveRecord
     public function upload()
     {
         if($this->validate()){
-            $this->image->saveAs('@frontend/web/uploads/'. $this->image->baseName . '.' . $this->image->extension);
+            $this->image->saveAs('@static/images/'. $this->image->baseName . '.' . $this->image->extension);
             return true;
         }else{
             return false;

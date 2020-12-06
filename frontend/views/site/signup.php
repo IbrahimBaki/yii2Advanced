@@ -10,26 +10,52 @@ use yii\bootstrap\ActiveForm;
 $this->title = 'Signup';
 $this->params['breadcrumbs'][] = $this->title;
 ?>
-<div class="site-signup">
-    <h1><?= Html::encode($this->title) ?></h1>
-
-    <p>Please fill out the following fields to signup:</p>
-
-    <div class="row">
-        <div class="col-lg-5">
-            <?php $form = ActiveForm::begin(['id' => 'form-signup']); ?>
-
-                <?= $form->field($model, 'username')->textInput(['autofocus' => true]) ?>
-
-                <?= $form->field($model, 'email') ?>
-
-                <?= $form->field($model, 'password')->passwordInput() ?>
-
-                <div class="form-group">
-                    <?= Html::submitButton('Signup', ['class' => 'btn btn-primary', 'name' => 'signup-button']) ?>
+<div class="brand_color">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="titlepage">
+                    <h2><?= $this->title ?></h2>
                 </div>
-
-            <?php ActiveForm::end(); ?>
+            </div>
         </div>
     </div>
 </div>
+<div class="contact">
+    <div class="container">
+        <div class="row">
+            <div class="clo-md-12">
+                <h1><?= Html::encode($this->title) ?></h1>
+                <p>Please fill out the following fields to signup:</p>
+                <?php $form = ActiveForm::begin([
+                        'id' => 'form-signup',
+                    'options'=>[
+                        'class'=>'main_form'
+                    ],
+                    'layout' => 'horizontal',
+                    'fieldConfig' => [
+                        'template' => "{label}\n<div class=\"col-lg-3\">{input}</div>\n<div class=\"col-lg-8\">{error}</div>",
+                        'labelOptions' => ['class' => 'col-lg-1 control-label'],
+                    ],
+                    ]); ?>
+                <div class="row">
+                    <div class="col-lg-12">
+                        <?= $form->field($model, 'username')->textInput(['autofocus' => true]) ?>
+                    </div>
+                    <div class="col-lg-12">
+                        <?= $form->field($model, 'email') ?>
+                    </div>
+                    <div class="col-lg-12">
+                        <?= $form->field($model, 'password')->passwordInput() ?>
+                    </div>
+                        <div class="col-md-5 mb-50">
+                            <?= Html ::submitButton('SignUp', ['class' => 'send']) ?>
+                        </div>
+                </div>
+                    <?php ActiveForm::end(); ?>
+
+            </div>
+        </div>
+    </div>
+</div>
+

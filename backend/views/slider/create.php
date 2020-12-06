@@ -3,7 +3,7 @@
 use yii\helpers\Html;
 
 /* @var $this yii\web\View */
-/* @var $model frontend\models\Slider */
+/* @var $model backend\models\Slider */
 
 $this->title = 'Create Slider';
 $this->params['breadcrumbs'][] = ['label' => 'Sliders', 'url' => ['index']];

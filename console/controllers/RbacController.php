@@ -1,8 +1,7 @@
 <?php
 namespace console\controllers;
 use Yii;
-use yii\console\controller;
-
+use yii\console\Controller;
 class RbacController extends Controller{
 
     public function actionInit()
@@ -34,8 +33,8 @@ class RbacController extends Controller{
 
         // Assign roles to users. 1 and 2 are IDs returned by IdentityInterface::getId()
         // usually implemented in your User model.
-        $auth->assign($user, 5);
-        $auth->assign($admin, 2);
+        $auth->assign($user, 2);
+        $auth->assign($admin, 1);
 
     }
 }

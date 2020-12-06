@@ -1,0 +1,7 @@
+RewriteEngine On
+##if a directory or file exists , use the request directory
+##RewriteCond %{REQUEST_FILENAME} !-f
+##RewriteCond %{REQUEST_FILENAME} !-d
+##otherwise ,forward to index.php
+RewriteRule ^site/([A-Za-z0-9]+)?$ index.php?r=site%2F$2 [QSA]
+

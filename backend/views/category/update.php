@@ -13,7 +13,7 @@ $this->params['breadcrumbs'][] = 'Update';
 <div class="category-update">
 
     <h1><?= Html::encode($this->title) ?></h1>
-    <?= Html::img('@web/uploads/'. $model->image,['style'=>'width:100px;height:100px']);?>
+    <?= Html::img(Yii::getAlias('@staticPath/images/'). $model->image,['style'=>'width:100px;height:100px']);?>
     <?= $this->render('_form', [
         'model' => $model,
     ]) ?>

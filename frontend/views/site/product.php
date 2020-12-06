@@ -41,7 +41,7 @@ $this->params['breadcrumbs'][] = $this->title;
                 <?php foreach ($products as $product): ?>
                 <div class="col-xl-3 col-lg-3 col-md-6 col-sm-12">
                     <div class="product-box" style="width: 240px;height: 301px">
-                        <i><?= Html::img('@web/uploads/'.$product->image,['style'=>'width:160px;height:160px'])?></i>
+                        <i><?= Html::img(Yii::getAlias('@staticPath/images/').$product->image,['style'=>'width:160px;height:160px'])?></i>
                         <h3><?= $product->title ?></h3>
                         <?php
                         foreach ($product->productOptions as $option){
