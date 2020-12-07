@@ -33,7 +33,14 @@ $this->params['breadcrumbs'][] = $this->title;
             'title',
             'type',
             'description',
-            'image',
+            [
+                'attribute'=>'image',
+                'format'=>'html',
+                'label'=>'Image',
+                'value'=>function($data){
+                    return Html::img(Yii::getAlias('@staticPath/images/'). $data->image ,['width'=>'60px','height'=>'60px']);
+                }
+            ],
         ],
     ]) ?>
 
